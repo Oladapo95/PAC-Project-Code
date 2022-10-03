@@ -1,2 +1,2 @@
-Sample Spring boot application
+Spring boot application
 To demonstrate CICD of a java web App
