@@ -13,7 +13,7 @@ pipeline{
         }
         stage('DockerBuild'){
             steps{
-                sh 'docker build -t cloudhight/pipeline:1.0.0 .'
+                sh 'bash && docker build -t cloudhight/pipeline:1.0.0 .'
             }
         }
         stage('DockerLogin') {
