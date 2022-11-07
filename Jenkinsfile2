@@ -1,19 +1,19 @@
 pipeline{
     agent any
     environment {
-        DOCKER_USER     = credentials('dockeruser')
-        DOCKER_PASSWORD = credentials('dockerPwd')
+        DOCKER_USER     = credentials('docker-user')
+        DOCKER_PASSWORD = credentials('docker-password')
     }
     stages {
         stage('BuildCode'){
             steps{
 
-               sh 'mvn install -DskipTests=true'
+               sh 'mvn package -Dmaven.test.skip'
             }
         }
         stage('DockerBuild'){
             steps{
-                sh 'bash && docker build -t cloudhight/pipeline:1.0.0 .'
+                sh 'docker build -t cloudhight/pipeline:1.0.0 .'
             }
         }
         stage('DockerLogin') {
