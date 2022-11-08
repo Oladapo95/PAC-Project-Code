@@ -5,12 +5,6 @@ pipeline{
         DOCKER_PASSWORD = credentials('docker-password')
     }
     stages {
-        stage('BuildCode'){
-            steps{
-
-               sh 'mvn package -Dmaven.test.skip'
-            }
-        }
         stage('DockerBuild'){
             steps{
                 sh 'docker build -t cloudhight/pipeline:1.0.0 .'
